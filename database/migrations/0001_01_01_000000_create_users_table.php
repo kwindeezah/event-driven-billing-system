@@ -17,6 +17,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('pid')->unique();
+            $table->string('country')->nullable();
+            $table->enum('auth_provider', ['local', 'facebook', 'google']);
+            $table->string('mobile')->nullable();
+            $table->string('language')->nullable();
+            $table->string('google2fa_secret')->nullable();
+            $table->boolean('two_factor_passed')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
